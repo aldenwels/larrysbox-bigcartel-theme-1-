@@ -1,0 +1,21 @@
+{
+  "product_list_size": "large",
+  "show_overlay": "On rollover",
+  "border_color": "#2B2B2B",
+  "show_search": false,
+  "show_inventory_bars": false,
+  "link_rollover": "#A6F0E0",
+  "sidebar_color": "transparent",
+  "font_color": "#808080",
+  "font": "Helvetica",
+  "product_list_layout": "masonry",
+  "background_color": "#000000",
+  "fixed_sidebar": true,
+  "highlight_color": "#FFFFFF",
+  "link_color": "#76BFAF",
+  "header_color": "#FFFFFF",
+  "sidebar_link_color": "#808080",
+  "header_font": "Helvetica",
+  "sidebar_link_rollover": "#A6F0E0",
+  "sidebar_border_color": "#2B2B2B"
+}

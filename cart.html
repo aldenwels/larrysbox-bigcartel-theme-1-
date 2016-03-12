@@ -1,0 +1,90 @@
+<img src="https://i.imgur.com/g8D7sQT.jpg" id="cartBg">
+</img>
+<div class="row">
+        <div class="medium-12 columns">
+          <div class="top-bar" id="main-menu">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text"><a>Larry's Box</a></li>
+              </ul>
+            </div>
+    <div class="top-bar-right">
+        <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
+          <li class="has-submenu">
+            <a href="#" data-reveal-id="myModal">About</a>
+          </li>
+          <li><a href="/products">Store</a></li>
+          <li><a href="/cart">Cart</a></li>
+        </ul>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="cart">
+<div class"row">
+<h3>Your Cart</h3>
+</div>
+  {% for item in cart.items %}
+  <div class = "row" id="items">
+    <div class="small-2 small-offset-4 columns">
+      <h3 style="color:white"><a href="{{product.name.url}}">{{item.name}}</a></h3>
+    <input type="text" placeholder={{item.quantity}} id="{{item.id}}"></input>
+    <p>{{item.price | money_with_sign}}</p>
+  </div>
+  <div class="small-2 columns end">
+    <img src={{item.product.image.url}}>
+</div>
+</div>
+  {% endfor %}
+
+<div class="row">
+  <div class= "small-4 small-centered columns">
+  <p>Cart total: {{cart.total}}</p>
+    <button type="button" id="buyButton">Place Order</button>
+</div>
+</div>
+</div>
+
+<div class="row">
+  <div class="medium-12 columns">
+    <footer class="footer">
+  <div class="row">
+    <div class="small-12 medium-6 large-5 columns">
+      <p class="logo"><i class="fi-shield"></i>Larry's Box</p> 
+      <p class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Returns</a>
+        <a href="#">Faq</a>
+        <a href="#">Contact</a>
+      </p>
+      <p class="copywrite">Copywrite not copywrite © 2015</p>
+    </div>
+    <div class="small-12 medium-6 large-4 columns">
+      <ul class="contact">
+        <li><p>+1-656-453-9966</p></li>
+        <li><p>contact@emperor.com</p></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+    </div>
+</div>    
+<script>
+  var quant;
+  $("input").keyup(function() {
+  quant = $( this ).val();
+  console.log(quant);
+  }).keyup(function(){
+  var name = this.id;
+  Cart.updateItem(name, quant, function(cart) {
+  location.reload();
+  console.log("Item updated!");  
+  });
+ 
+  document.getElementByID("cartBg").height = $(document).height();
+  
+  
+});
+</script>

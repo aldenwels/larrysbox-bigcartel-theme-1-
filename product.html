@@ -1,0 +1,192 @@
+<img src="" id="prod-bg"></img>
+<div>
+<div class="large-12 columns" id="bord">
+      <div class="row">
+        <div class="medium-12 columns">
+          <div class="top-bar" id="main-menu">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text"><a>Larry's Box</a></li>
+              </ul>
+            </div>
+    <div class="top-bar-right">
+        <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
+          <li class="has-submenu">
+            <a href="#" data-reveal-id="myModal">About</a>
+          </li>
+          <li><a href="/products">Store</a></li>
+        <li><a href="/cart">Cart</a></li>
+        </ul>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="row">
+   <div class="medium-12 columns">
+      <div id ="banner">
+        <img src="https://i.imgur.com/WXjRwfY.jpg" id = "banner"></img>
+      </div>
+      </div>
+</div>
+  -->
+  
+
+
+<div class="row" id="prod-display">
+  <div class="medium-6 columns">
+    <img class="thumbnail" src="{{product.images[0].url}}" id="main-prod">
+    <div class="row small-up-4" id="thumbs">
+      <div class="column">
+        <img class="thumbnail" src="" id="thumb1">
+      </div>
+      <div class="column">
+        <img class="thumbnail" src="" id="thumb2">
+      </div>
+      <div class="column">
+        <img class="thumbnail" src="" id="thumb3">
+      </div>
+      <div class="column">
+        <img class="thumbnail" src="" id="thumb4">
+      </div>
+    </div>
+  </div>
+  <div class="medium-6 large-5 columns" id="rightdec">
+    <h3>{{product.name}}</h3>
+    <p>{{product.description}}</p>
+    <label>Size
+      <select id="sizes">
+        <option id="opt0" value={{product.options[0].id}}>{{product.options[0].name}}</option>
+        <option id="opt1"value={{product.options[1].id}}>{{product.options[1].name}}</option>
+      </select>
+     </label>
+    <div class="row">
+      <div class="small-6 small-centered columns" id="quantity">
+        <label for="middle-label" class="middle">Quantity
+        <div>
+        <input type="number" id="middle-label" placeholder="how many slime?">
+      </div>
+        </label>
+      </div>
+      <div class ="small-12 small-centered columns" id="button">
+      <button type="button" id="buy-button">Buy Now</button>
+      </div>
+    </div>
+</div>
+</div>
+
+
+  <div class="row">
+  <div class="medium-12 columns">
+    <footer class="footer">
+  <div class="row">
+    <div class="small-12 medium-6 large-5 columns">
+      <p class="logo"><i class="fi-shield"></i>Larry's Box</p> 
+      <p class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Returns</a>
+        <a href="#">Faq</a>
+        <a href="#">Contact</a>
+      </p>
+      <p class="copywrite">Copywrite not copywrite © 2015</p>
+    </div>
+    <div class="small-12 medium-6 large-4 columns">
+      <ul class="contact">
+        <li><p>+1-656-453-9966</p></li>
+        <li><p>contact@emperor.com</p></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+    </div>
+</div>
+</div>
+  
+  <div id="myModal" class="reveal-modal">
+      <img src="https://i.imgur.com/LncFhvB.jpg">
+      <p>Larry Gintz (official birth name Lorenzo Guintaine) is a man of many faces, one of them being baseball. As a former player for the Houston 
+        Astros for three consecutive seasons and the Baltimore Orioles for two, as well as his stint as a Little League coach for various youth centers in Chicago, Newark, and Philadelphia during the 1980’s, Larry thought that the Great American Pastime would be his calling for life.<br><br>
+        Unfortunately, all good things must end. Nothing is eternal. However, the closing of one door should ideally lead to the opening of another…<br><br>
+        After a career-killing head injury resulting from a fly ball and an increasingly toxic habit for codeine, Larry was forced to settle down in his
+        hometown in 5th Ward, Houston, and find a new calling. His pride may have been wounded beyond repair, but luckily for him, his love for
+        codeine-promethazine cocktails was as pure as ever.<br><br>
+        He began to make new acquaintances as the music scene in Houston’s ghettoes started to carve a niche for itself in the mid 1990’s. Many
+        of these acquaintances were loyal fans (some of them even personal friends) of DJ Screw, a fellow Texan who needs no introduction for anyone 
+        reading this. Taking full inspiration from the synergy of Screw’s trademark grey mixtapes and the Syrup, Larry went to work on his next
+        endeavor in life: a creative one.<br><br>
+        Along with the inner visions that he had attained during his many soul-searching codeine “trips,” Larry also found fresh inspiration in the
+        imagery and language of the esoteric secret societies from centuries past, thus stirring up a potent mix of the designs that are featured on 
+        these t-shirts, hats, etc. that you can now own for the first time in twenty years.<br><br>
+        Drank up.
+    </p>
+      <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+<script>
+  
+  var quant;
+  var optID;
+ 
+  var imgAmount = "{{product.image_count}}";
+  var th = "thumb";
+  var images = ["{{product.images[1].url}}",
+  "{{product.images[2].url}}","{{product.images[3].url}}","{{product.images[4].url}}"];
+  for(i = 1; i < imgAmount ; i++){
+  th = "thumb" + i;
+  var srcimage = images[i - 1];
+  $('#' + th).attr("src",srcimage);
+  }
+ 
+  
+  //sets different images on click
+  var hold;
+  $("#thumbs img").click(function(){
+  hold = document.getElementById("main-prod").src;
+  $("#main-prod").attr("src",$(this).attr("src").replace('thumb','large'));
+  $(this).attr("src",hold);
+  });
+  
+ 
+  //gets input for quantity of shirts requested 
+ $( "#middle-label" ).keyup(function() {
+    quant = $( this ).val();
+  console.log(quant);
+  }).keyup();
+ 
+  
+  var size; 
+  function displayVals() {
+  var size = $( "#sizes" ).val();
+  console.log(size);
+}
+
+  
+  function displayVals(){
+   optID = $("select").val();
+  }
+ 
+$( "select" ).change( displayVals );
+displayVals();
+  
+
+  
+  $("#buy-button").click(function(){
+      Cart.addItem(optID, quant, function(cart) {
+  console.log(optID);
+  console.log("got u");
+  });
+  });
+  
+
+var bgImages = ['https://i.imgur.com/8itXqLH.png','https://i.imgur.com/MJZuI0J.jpg','https://i.imgur.com/wwr6BiJ.jpg','https://i.imgur.com/8itXqLH.png'];
+var rand = Math.floor((Math.random() * 3) + 1);
+var bgURL = bgImages[rand];
+console.log(bgURL);
+$('#prod-bg').attr('src',bgImages[rand]);
+  
+document.getElementByID("prod-bg").height() = $(document).height();
+  
+</script>

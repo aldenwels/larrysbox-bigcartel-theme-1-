@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]><html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html> <!--<![endif]-->
+<head>
+  <title>{{ store.name }} &mdash; {{ page.name }}</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="{{ page.meta_description }}">
+  <meta name="keywords" content="{{ page.meta_keywords }}">
+  <link rel="stylesheet" href="https://googledrive.com/host/0B87_DyiKZsj5WXRGOGtnWUtUZ28/foundation.min.css">
+  <link rel="stylesheet" type="text/css" href="https://googledrive.com/host/0B87_DyiKZsj5WXRGOGtnWUtUZ28/reveal.css">
+  <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
+ 
+
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="https://googledrive.com/host/0B87_DyiKZsj5WXRGOGtnWUtUZ28/jquery.reveal.js"></script>
+
+  <script src="{{ 'api' | theme_js_url }}"></script>
+
+  {{ head_content }}
+</head>
+
+<body style="background-color:black;">
+  <div class ="container">{{page_content}}</div>
+
+</body>
+</html>

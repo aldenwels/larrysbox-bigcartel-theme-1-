@@ -1,0 +1,10 @@
+<ol id="products">
+</ol>
+
+
+
+<script>
+Product.findAll({}, function(products) {
+  $("#products").append('<li>' + products.length + '</li>);
+});
+</script>

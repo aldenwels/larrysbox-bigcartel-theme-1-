@@ -1,0 +1,145 @@
+<div id="wrapper">
+<img src="https://i.imgur.com/iISgv9W.jpg" id="productsBg">
+</img>
+</div>
+<div class="row">
+        <div class="medium-12 columns">
+          <div class="top-bar" id="main-menu">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text"><a>Larry's Box</a></li>
+              </ul>
+            </div>
+    <div class="top-bar-right">
+        <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
+          <li class="has-submenu">
+            <a href="#" data-reveal-id="myModal">About</a>
+          </li>
+          <li><a href="/products">Store</a></li>
+          <li><a href="/cart">Cart</a></li>
+        </ul>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <div id ="banner">
+      <img src="https://i.imgur.com/WXjRwfY.jpg" id = "banner"></img>
+    </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class= "small-12 columns" id ="menu-prod">
+      <ul class="menu">
+        <li><a href="#">All</a></li>
+        <li><a href="#" id="shirts">Shirts</a></li>
+        <li><a href="#" id="hats">Hats</a></li>
+        <li><a href="/cart">Cart</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row" id="products">
+
+</div>
+  
+  
+  
+  
+   <div class="row">
+  <div class="medium-12 columns">
+    <footer class="footer">
+  <div class="row">
+    <div class="small-12 medium-6 large-5 columns">
+      <p class="logo"><i class="fi-shield"></i>Larry's Box</p> 
+      <p class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Returns</a>
+        <a href="#">Faq</a>
+        <a href="#">Contact</a>
+      </p>
+      <p class="copywrite">Copywrite not copywrite © 2015</p>
+    </div>
+    <div class="small-12 medium-6 large-4 columns">
+      <ul class="contact">
+        <li><p>+1-656-453-9966</p></li>
+        <li><p>contact@emperor.com</p></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+    </div>
+</div>    
+</div>
+</div>
+
+<div id="myModal" class="reveal-modal">
+      <img src="https://i.imgur.com/LncFhvB.jpg">
+      <p>Larry Gintz (official birth name Lorenzo Guintaine) is a man of many faces, one of them being baseball. As a former player for the Houston 
+        Astros for three consecutive seasons and the Baltimore Orioles for two, as well as his stint as a Little League coach for various youth centers in Chicago, Newark, and Philadelphia during the 1980’s, Larry thought that the Great American Pastime would be his calling for life.<br><br>
+        Unfortunately, all good things must end. Nothing is eternal. However, the closing of one door should ideally lead to the opening of another…<br><br>
+        After a career-killing head injury resulting from a fly ball and an increasingly toxic habit for codeine, Larry was forced to settle down in his
+        hometown in 5th Ward, Houston, and find a new calling. His pride may have been wounded beyond repair, but luckily for him, his love for
+        codeine-promethazine cocktails was as pure as ever.<br><br>
+        He began to make new acquaintances as the music scene in Houston’s ghettoes started to carve a niche for itself in the mid 1990’s. Many
+        of these acquaintances were loyal fans (some of them even personal friends) of DJ Screw, a fellow Texan who needs no introduction for anyone 
+        reading this. Taking full inspiration from the synergy of Screw’s trademark grey mixtapes and the Syrup, Larry went to work on his next
+        endeavor in life: a creative one.<br><br>
+        Along with the inner visions that he had attained during his many soul-searching codeine “trips,” Larry also found fresh inspiration in the
+        imagery and language of the esoteric secret societies from centuries past, thus stirring up a potent mix of the designs that are featured on 
+        these t-shirts, hats, etc. that you can now own for the first time in twenty years.<br><br>
+        Drank up.
+    </p>
+      <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+  
+<script>
+  $(function() {
+      Product.findAll({}, function(products) {
+        $.each(products, function(i, product) {
+
+  if(i >= (products.length - 1)){     
+  $('#products').append('<div class="small-4 columns end"><img src="' + Product.findImage(product.images[0].url) + '" /><p>' 
+  + product.name + "  " + '<span>' + Format.money(product.price) +'</span></p><a href="' + product.url + '"><div><p>View</p></div></a></div>');
+}
+  else{
+  $('#products').append('<div class="small-4 columns"><img src="' + Product.findImage(product.images[0].url) + '" /><p>' 
+  + product.name + "  -  " + '<span>' + Format.money(product.price) +'</span></p><a href="' + product.url + '"><div><p>View</p></div></a></div>');
+}
+
+  });    
+  });
+    });
+  
+$('#shirts').click(function(){
+  $('#products').empty();
+  fillCategory("shirts");
+  });
+  
+$('#hats').click(function(){
+  $('#products').empty();
+  fillCategory("hats");
+  });
+  
+function fillCategory(cat){
+   Product.findAll({}, function(products) {
+   $.each(products, function(i, product) {
+  if(product.categories[0].name == cat){
+  $('#products').append('<div class="small-4 columns end"><img src="' + Product.findImage(product.images[0].url) + '" /><p>' 
+  + product.name + "  " + '<span>' + Format.money(product.price) +'</span></p><a href="' + product.url + '"><div><p>View</p></div></a></div>');
+  }
+ });  
+  });
+ }
+
+
+</script>
+  
